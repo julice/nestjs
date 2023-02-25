@@ -1,0 +1,22 @@
+###
+Get http://localhost:3000/students/studentsId/1
+
+###
+Get  http://localhost:3000/students/getStudentById
+?id=1
+
+###
+# GET https://example.com/comments/1 HTTP/1.1
+
+###
+GET  http://localhost:3000/students
+
+###
+POST http://localhost:3000/students/add HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":5,
+    "name":"xiaoxiao",
+    "age":23
+}
