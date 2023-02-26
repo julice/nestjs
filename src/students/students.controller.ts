@@ -20,7 +20,7 @@ export class StudentsController {
   // 获取所有数据
   @Get()
   GetStudents() {
-    console.log(this.getStudentService);
+    console.log(this.getStudentService, 11);
     console.log(this.getStudentValueService, 221);
     return this.studentsService.getStudent();
   }
