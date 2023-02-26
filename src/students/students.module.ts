@@ -9,13 +9,14 @@ import { StudentsService } from './students.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Student } from './entities/student.entity';
 import { CounterMiddleware } from '../counter/counter.middleware';
-
+import { PersonService } from '../person/person.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Student])],
   controllers: [StudentsController],
   // provide:[StudentService],
   // 自定义引入providers
   providers: [
+    PersonService,
     {
       provide: 'Student',
       useClass: StudentsService,
