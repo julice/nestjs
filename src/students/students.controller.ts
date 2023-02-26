@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Headers,
+  Inject,
   Param,
   Post,
   Request,
@@ -11,10 +12,16 @@ import { StudentsService } from './students.service';
 
 @Controller('students')
 export class StudentsController {
-  constructor(private studentsService: StudentsService) {}
+  constructor(
+    @Inject('Student') private studentsService: StudentsService,
+    @Inject('GetStudent') private getStudentService: void,
+    @Inject('GetStudentValue') private getStudentValueService: number[],
+  ) {}
   // 获取所有数据
   @Get()
   GetStudents() {
+    console.log(this.getStudentService);
+    console.log(this.getStudentValueService, 221);
     return this.studentsService.getStudent();
   }
   // @Get('getStudentById')

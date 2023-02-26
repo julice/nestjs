@@ -7,6 +7,21 @@ import { Student } from './entities/student.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([Student])],
   controllers: [StudentsController],
-  providers: [StudentsService],
+  // provide:[StudentService],
+  // 自定义引入providers
+  providers: [
+    {
+      provide: 'Student',
+      useClass: StudentsService,
+    },
+    {
+      provide: 'GetStudent',
+      useFactory: () => {
+        console.log('211133');
+        return 22;
+      },
+    },
+    { provide: 'GetStudentValue', useValue: [1, 2, 3] },
+  ],
 })
 export class StudentsModule {}
