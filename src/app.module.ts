@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { StudentsModule } from './students/students.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PersonModule } from './person/person.module';
+import { ConfigModule } from './config/config.module';
 // orm 对象关系映射
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PersonModule } from './person/person.module';
     }),
     StudentsModule,
     PersonModule,
+    ConfigModule,
   ],
 })
 export class AppModule {}

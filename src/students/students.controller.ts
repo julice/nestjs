@@ -10,17 +10,21 @@ import {
 } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { PersonService } from '../person/person.service';
+import { ConfigModule } from 'src/config/config.module';
 @Controller('students')
 export class StudentsController {
   constructor(
     @Inject('Student') private studentsService: StudentsService,
     @Inject('GetStudent') private getStudentService: void,
     @Inject('GetStudentValue') private getStudentValueService: number[],
+    @Inject('Config') private config: string,
     private personService: PersonService,
   ) {}
   // 获取所有数据
   @Get()
   GetStudents() {
+    console.log(this.config, '111111configModule');
+
     console.log(this.getStudentService, 11);
     console.log(this.getStudentValueService, 221);
     console.log(this.personService.findAll());
