@@ -22,7 +22,7 @@ import { ConfigModule } from './config/config.module';
     }),
     StudentsModule,
     PersonModule,
-    ConfigModule,
+    ConfigModule.forroot('test'),
   ],
 })
 export class AppModule {}
